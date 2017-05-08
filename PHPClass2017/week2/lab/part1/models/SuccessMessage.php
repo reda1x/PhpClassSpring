@@ -12,5 +12,23 @@
  * @author w1x
  */
 class SuccessMessage extends Message{
-    //put your code here
+     protected $successMessages =[];
+
+    public function addMessage($key, $msg) {
+        $this->successMessages[$key]= $msg;
+    }
+
+    public function removeMessage($key) {
+        
+       unset($this->successMessages[$key]); 
+       
+        
+    }
+
+    public function getAllMessages() {
+        return $this->successMessages;
+        
+    }
+
+
 }

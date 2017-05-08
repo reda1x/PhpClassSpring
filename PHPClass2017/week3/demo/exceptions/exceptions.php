@@ -42,7 +42,11 @@
            $db = new DB($dbConfig);
            $pdo = $db->getDB();
            
-        } catch (DBException $e) {
+        }
+         catch (ArrayException $e){
+             echo 'caught array exception:', $e->getMessage() . $e->getLine() ,"\n";
+         }
+        catch (DBException $e) {
             echo '<br /> Caught DBException: ',  $e->getMessage(), "\n";
         }
         

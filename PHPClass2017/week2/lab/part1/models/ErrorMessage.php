@@ -12,5 +12,23 @@
  * @author w1x
  */
 class ErrorMessage Extends Message{
-    //put your code here
+   protected $errorMessages =[];
+
+    public function addMessage($key, $msg) {
+        $this->errorMessages[$key]= $msg;
+    }
+
+    public function removeMessage($key) {
+        
+       unset($this->errorMessages[$key]); 
+       
+        
+    }
+
+    public function getAllMessages() {
+        return $this->errorMessages;
+        
+    }
+
+    
 }
