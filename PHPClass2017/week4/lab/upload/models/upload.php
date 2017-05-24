@@ -69,9 +69,9 @@
                 // On this example, obtain safe unique name from its binary data.
                 
                 $salt = uniqid(mt_rand(), true);
-                $type = $finfo->file($keyName);
-                
-                $fileName = 'img_' . sha1($salt . sha1_file($_FILES[$keyName]['tmp_name']));
+                $type = $finfo->file($_FILES[$keyName]['tmp_name']);
+                list($first,$last)= explode('/', $type);
+                $fileName = $first .'_' . sha1($salt . sha1_file($_FILES[$keyName]['tmp_name']));
                 $location = sprintf('../uploads/%s.%s', $fileName, $ext);
 
                 if (!is_dir('../uploads')) {

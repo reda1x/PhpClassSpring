@@ -10,31 +10,36 @@ $directory = scandir('../uploads');
     <head>
         <meta charset="UTF-8">
         <title> </title>
-    
 
-</head>
 
-<body>
-    <table class="table table-inverse ">
-        <tr><td>#</td><td>File Name</td><td>View</td><tr>
-            <?php
-            $i=1;
-            foreach ($directory as $file) :
+    </head>
 
-                if (is_file($folder . DIRECTORY_SEPARATOR . $file)) :
-                    ?>
-                <tr>
-                    <td><?php echo $i ;
-                    $i++;?></td>
-                    <td><?php echo $file; ?></td>
-                    
-                    <td><a href='templates/view-address.html.php?'>Click Here for more details</a></td>
+    <body>
+        <table class="table table-inverse ">
+            <tr><td>#</td><td>File Name</td><td>View</td><td>delete</td><tr>
+                <?php
+                $i = 1;
+                foreach ($directory as $file) :
 
-                </tr>
+                    if (is_file($folder . DIRECTORY_SEPARATOR . $file)) :
+                        ?>
+                    <tr>
+                        <td><?php
+                       
+                            echo $i;
+                            $i++;
+                            ?></td>
+                        <td><?php echo $file; ?></td>
 
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </table>
+                        <td><a href='../models/read.php?file=<?php echo $file ?>'>View File</a></td>
+                        <td><a href='../models/deletepage.php?file=<?php echo $file ?>'>Delete File</a></td>
 
-</body>
+
+                    </tr>
+
+    <?php endif; ?>
+<?php endforeach; ?>
+        </table>
+
+    </body>
 </html>
