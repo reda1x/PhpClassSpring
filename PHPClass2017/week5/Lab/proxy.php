@@ -25,7 +25,7 @@
             <option value="PUT">PUT</option>
             <option value="DELETE">DELETE</option>
             <option value ="GETALL">GET ALL</option>
-            
+
         </select>
         <br />
         <br />
@@ -34,6 +34,8 @@
         <br />
         <br />
         Data(optional):<br />   
+        id <input type="text" name="id" value="" />
+        <br />   
         corp <input type="text" name="corp" value="" />
         <br />
         incorp date <input type="date" name="incorp_dt">
@@ -42,12 +44,12 @@
         <br />
         Owner <input type="text" name="owner" value="" />
         <br />
-       
+
         phone <input type="number" pattern="[0-9]*" maxlength="12" min="0" name="phone">
         <br />
         location <input type="text" name="location">
         <br />
-        
+
         <br />
         <button>Make Call</button>
         <h3>Results</h3>
@@ -63,6 +65,7 @@
                 var verb = verbfield.options[verbfield.selectedIndex].value;
                 var resource = document.querySelector('input[name="resource"]').value;
                 var data = {
+                    'id': document.querySelector('input[name="id"]').value,
                     'corp': document.querySelector('input[name="corp"]').value,
                     'email': document.querySelector('input[name="email"]').value,
                     'incorp_dt': document.querySelector('input[name="incorp_dt"]').value,
@@ -86,7 +89,7 @@
                     } // else waiting for the call to complete
                 }
 
-                if (verb === 'GET') {
+                if (verb === '') {
                     httpRequest.send(null);
                 } else {
                     httpRequest.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
@@ -98,7 +101,7 @@
 
 
 
-        
+
 
     </body>
 </html>

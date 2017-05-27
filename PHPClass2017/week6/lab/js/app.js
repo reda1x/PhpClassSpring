@@ -9,16 +9,16 @@
         $routeProvider.
                 when('/', {
                     templateUrl: 'js/phone-list.template.html',
-                    conteoller: 'PhoneListController',
+                    controller: 'PhoneListController',
                     controllerAs: 'vm'
                 }).
                 when('/phones/:phoneId', {
                     templateUrl: 'js/phone-detail.template.html',
-                    conteoller: 'PhoneDetailController',
+                    controller: 'PhoneDetailController',
                     controllerAs: 'vm'
                 }).
                 otherwise({
                     redirectTo: '/'
-                });
+                }); 
     }
 })();

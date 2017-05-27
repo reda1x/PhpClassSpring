@@ -3,7 +3,7 @@
     
     angular
             .module('app')
-            .constant('REQUEST',{
+            .constant('REQUEST', {
                 'Phones' : './data/phones.json'
             });
 

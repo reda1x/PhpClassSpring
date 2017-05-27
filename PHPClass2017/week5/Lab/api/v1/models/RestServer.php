@@ -79,7 +79,7 @@ class RestServer {
     
     private function setVerb() {
         $this->verb = filter_input(INPUT_SERVER, 'REQUEST_METHOD');
-        $verbs_allowed = array('GET','POST','PUT','DELETE');
+        $verbs_allowed = array('GET','GETALL','POST','PUT','DELETE');
 
         if ( !in_array($this->verb, $verbs_allowed) ) {
             throw new Exception("Unexpected Header Requested ". $this->verb);

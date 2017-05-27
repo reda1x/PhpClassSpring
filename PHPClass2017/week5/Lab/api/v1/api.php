@@ -30,7 +30,7 @@ try {
      */
     $resourceUName = ucwords($resource);
 
-    $resourceClassName = $resourceUName.'Resource';
+    $resourceClassName = $resourceUName . 'Resource';
     echo $resourceClassName;
 
     try {
@@ -40,24 +40,17 @@ try {
     }
 
     if ('GET' === $verb) {
-
-        if (NULL === $id) {
-
-            $restServer->setData($resourceData->getAll());
-        } else {
-
-            $restServer->setData($resourceData->get($id));
-        }
+        $restServer->setData($resourceData->get($id));
     }
 
     if ('POST' === $verb) {
 
 
         if ($resourceData->post($serverData)) {
-            $restServer->setMessage($resourceUName .' Added');
+            $restServer->setMessage($resourceUName . ' Added');
             $restServer->setStatus(201);
         } else {
-            throw new Exception($resourceUName.' could not be added');
+            throw new Exception($resourceUName . ' could not be added');
         }
     }
 
@@ -65,11 +58,14 @@ try {
     if ('PUT' === $verb) {
 
         if (NULL === $id) {
-            throw new InvalidArgumentException($resourceUName .' ID ' . $id . ' was not found');
+            throw new InvalidArgumentException($resourceUName . ' ID ' . $id . ' was not found');
         }
     }
-    
- 
+    if ('GETALL' === $verb) {
+        $restServer->setData($resourceData->getALL());
+    }
+
+
 
 
 
